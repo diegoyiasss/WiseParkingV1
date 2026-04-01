@@ -1,0 +1,499 @@
+html {
+    scroll-behavior: smooth;
+}
+/* Header como contenedor */
+body{
+    background-color: black;
+    color: white;    /* Color del texto del body */
+    font-family: sans-serif, Arial, Helvetica;
+    font-size: 18px;
+}
+
+header.navbar{
+  background-color:#FFDD00;
+  padding:15px 20px;
+  display:flex;                /* coloca elementos en línea */
+  align-items:center;          /* centra verticalmente */
+  justify-content:space-between;/* logo+titulo a la izq, menú a la der */
+  gap:24px;                    /* espacio entre bloques */
+}
+
+/* Por defecto (pantallas grandes), el botón de menú NO se ve */
+.nav-toggle {
+  display: none;
+}
+
+/* Logo */
+.logo{ margin:0; display:flex; align-items:center; }
+.logo img{ display:block; height:42px; }
+
+/* Título (opcional ocultarlo en móviles) */
+.brand{ font-size:18px; color:#0a0a0a; margin:0; }
+
+/* Nav y menú a la derecha */
+.nav{ display:flex; align-items:center; }
+
+.menu{
+  list-style:none;
+  display:flex;
+  gap:40px;                    /* separación entre links */
+  margin:0;
+  padding:0;
+}
+
+/* Enlaces */
+.menu a{
+  color:#0a0a0a;  /* Color del texto del header */
+  text-decoration:none;
+  font-size:1em;
+  transition:color .2s;
+}
+.menu a:hover{ color:#000; }
+
+/* Opcional: limitar ancho y centrar todo el header dentro de la página */
+.wrapper{
+  max-width:1200px;
+  margin:0 auto;
+  width:100%;
+}
+section {
+  padding: 40px 20px; /* 40px arriba/abajo, 20px a los lados */
+}
+h2 {
+  color: #FFDD00;
+  margin-top: 0;
+}
+
+/* --- SECCIÓN DE CONTACTO --- */
+
+.contact-container {
+    display: flex;            /* Convierte la caja en una fila elástica */
+    justify-content: center;  /* Centra los grupos en el medio de la página */
+    gap: 80px;                /* Pone un buen espacio entre cada columna */
+    flex-wrap: wrap;          /* Si la pantalla es muy chica, permite que bajen */
+    margin-top: 30px;         /* Un poco de aire arriba, separado del título */
+}
+
+.contact-item {
+    text-align: center;       /* Centra el texto "Call us" y el número */
+}
+
+/* Opcional: Para que los subtítulos (h3) resalten un poco más */
+.contact-item h3 {
+    color: #FFDD00;           /* Amarillo, igual que el título principal */
+    margin-bottom: 10px;      /* Espacio entre el título y el número */
+}
+
+/* Color específico para WhatsApp (Verde) */
+.whatsapp h3 {
+    color: #25D366;
+}
+
+/* Color específico para Instagram (Rosa/Morado) */
+.instagram h3 {
+    color: #DD2A7B;
+}
+
+/* --- SECCIÓN HOME --- */
+
+.home {
+    display: flex;            /* Pone el bloque de texto y la imagen en fila */
+    align-items: center;      /* Centra verticalmente (que no queden descuadrados) */
+    justify-content: space-between; /* Manda texto a un lado e imagen al otro */
+    gap: 50px;                /* Un buen espacio de separación en el medio */
+}
+
+/* Ajuste para que el texto ocupe el espacio principal */
+.home-content {
+    flex: 1;                  /* Le dice al texto: "Toma todo el espacio que puedas" */
+}
+
+/* Ajuste para controlar el tamaño de la imagen */
+.home img {
+    max-width: 20%;           /* Que la imagen no ocupe más del 45% del ancho */
+    height: auto;             /* Mantiene la proporción para que no se deforme */
+}
+
+/* --- SECCIÓN SERVICES --- */
+
+.Services {              /* <--- ¡Ojo! Debe coincidir con la S mayúscula del HTML */
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 50px;
+}
+
+.services-content {
+    flex: 1;             /* El texto ocupa el espacio disponible */
+}
+
+.Services img {          /* <--- Aquí también usamos la S mayúscula */
+    max-width: 20%;      /* Imagen pequeña igual que en Home */
+    height: auto;
+}
+
+/* --- VERSIÓN MÓVIL (RESPONSIVE) --- */
+@media (max-width: 768px) {
+
+    /* 1. Header: Lo mantenemos en FILA, pero permitimos que el menú baje */
+    header.navbar {
+        display: flex;
+        flex-direction: row;        /* <--- CAMBIO: Fila, no columna */
+        flex-wrap: wrap;            /* <--- IMPORTANTE: Permite saltar de línea */
+        justify-content: space-between; /* Logo a la izquierda, Botón a la derecha */
+        align-items: center;
+    }
+
+    /* 2. El botón: Lo mantenemos visible */
+    .nav-toggle {
+        display: block;
+        background: none;
+        border: none;
+        font-size: 30px;
+        cursor: pointer;
+        padding: 0 10px;           /* Un poco de espacio para el dedo */
+    }
+
+    /* 3. El contenedor del menú (nav): Forzamos a que ocupe toda la linea de abajo */
+    .nav {
+        width: 100%;               /* Ocupa todo el ancho */
+        order: 3;                  /* Asegura que quede al final */
+    }
+
+    /* 4. La lista del menú: Se oculta o muestra */
+    .menu {
+        display: none;             
+        flex-direction: column;
+        width: 100%;
+        text-align: center;
+        padding-top: 20px;
+        background-color: #FFDD00; /* Asegura que el fondo siga siendo amarillo */
+    }
+
+    /* Clase mágica para mostrar */
+    .menu.nav-visible {
+        display: flex;
+    }
+    
+    /* ... mantén aquí el resto de tus reglas para imágenes y home ... */
+}
+/* --- LÍMITES DEL CONTENIDO PRINCIPAL --- */
+main {
+    max-width: 1200px;   /* "No crezcas más de 1200 píxeles de ancho" */
+    margin: 0 auto;      /* "Si sobra espacio a los lados, repártelo igual (céntrate)" */
+    width: 100%;         /* "Usa todo el espacio disponible hasta llegar al límite" */
+}
+
+/* --- ESTILOS DE AUTENTICACIÓN (Sign In / Register) --- */
+
+/* 1. El Contenedor Principal: Divide la pantalla en dos */
+.auth-section {
+    display: flex;              /* Activa los superpoderes de alineación */
+    align-items: center;        /* Centra verticalmente */
+    justify-content: space-between; 
+    gap: 50px;                  /* Espacio entre el formulario y la imagen */
+    min-height: 60vh;           /* Asegura que tenga una altura decente */
+    padding: 40px 0;            /* Un poco de aire arriba y abajo */
+}
+
+/* 2. El Formulario (Lado Izquierdo) */
+.auth-form {
+    flex: 1;                    /* Ocupa el espacio disponible */
+    max-width: 450px;           /* Pero no te estires demasiado */
+}
+
+.auth-form h2 {
+    font-size: 32px;            /* Título grande */
+    margin-bottom: 30px;
+    color: #FFDD00;             /* Amarillo WiseParking */
+}
+
+/* Estilos para los campos de texto */
+.auth-form form {
+    display: flex;
+    flex-direction: column;     /* Pone los inputs uno debajo del otro */
+}
+
+.auth-form label {
+    color: #FFDD00;             /* Etiquetas amarillas */
+    margin-bottom: 8px;
+    font-size: 16px;
+}
+
+.auth-form input {
+    background-color: #E0E0E0;  /* Fondo gris claro para escribir */
+    border: none;
+    padding: 15px;              /* Relleno cómodo */
+    margin-bottom: 20px;        /* Espacio antes del siguiente campo */
+    font-size: 16px;
+    outline: none;              /* Quita el borde azul al hacer clic */
+}
+
+/* 3. El Botón */
+.auth-form button {
+    background-color: #FFDD00;
+    color: black;
+    font-weight: bold;
+    font-size: 16px;
+    padding: 12px 30px;
+    border: none;
+    cursor: pointer;            /* Manito al pasar el mouse */
+    width: fit-content;         /* El botón se ajusta al texto, no ocupa todo el ancho */
+    margin-top: 10px;
+}
+
+.auth-form button:hover {
+    background-color: white;    /* Pequeño efecto al pasar el mouse */
+}
+
+/* 4. La Imagen (Lado Derecho) */
+.auth-image {
+    flex: 1;
+    display: flex;
+    justify-content: center;    /* Centra la imagen en su mitad */
+}
+
+.auth-image img {
+    max-width: 60%;             /* Controlamos el tamaño de la ilustración */
+    height: auto;
+}
+
+/* --- ESTILOS DEL PANEL DE ADMINISTRADOR --- */
+
+/* 1. Sub-navegación (Los enlaces de texto arriba) */
+.admin-links {
+    display: flex;
+    gap: 30px;
+    margin-bottom: 20px;
+}
+
+.admin-links a {
+    color: #FFDD00;        /* Amarillo */
+    text-decoration: none;
+    font-size: 18px;
+}
+
+/* Efecto para resaltar la página actual (Admin vehicles) */
+.active-link {
+    font-weight: bold;
+    border-bottom: 2px solid #FFDD00; /* Subrayado amarillo */
+}
+
+.description {
+    color: #ccc;
+    margin-bottom: 40px;
+}
+
+/* 2. Contenedor Principal (Tabla a la izq, Imagen a la der) */
+.dashboard-container {
+    display: flex;
+    gap: 50px;
+    align-items: flex-start; /* Alinea todo arriba */
+}
+
+/* 3. La Tabla Mágica (Grid) */
+.vehicle-grid {
+    display: grid;
+    /* Crea 4 columnas del mismo tamaño */
+    grid-template-columns: repeat(4, 1fr); 
+    gap: 15px;             /* Espacio entre celdas */
+    flex: 2;               /* Ocupa el doble de espacio que la imagen */
+}
+
+/* Encabezados amarillos */
+.grid-header {
+    color: #FFDD00;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+/* Celdas de datos (Cajas grises) */
+.grid-item {
+    background-color: #E0E0E0; /* Gris claro */
+    color: black;
+    padding: 10px;
+    border-radius: 4px;        /* Bordes un poco redondeados */
+    min-height: 40px;          /* Altura mínima */
+    display: flex;
+    align-items: center;       /* Texto centrado verticalmente */
+}
+
+/* Caja vacía específica para "Charge" si la quieres sin texto */
+.empty-box {
+    background-color: #D3D3D3; 
+}
+
+/* 4. Imagen del Admin */
+.admin-image {
+    flex: 1; 
+    /* Opcional: Centrar el contenido del contenedor si la imagen es pequeña */
+    display: flex;       
+    justify-content: center;
+    align-items: center;
+}
+
+.admin-image img {
+    width: 100%;         /* "Intenta llenar el espacio..." */
+    max-width: 400px;    /* "...PERO detente si llegas a 400px"*/
+    height: auto;        /* Mantiene la proporción */
+    display: block;   
+}
+
+/* --- AJUSTE MÓVIL PARA ADMIN --- */
+@media (max-width: 768px) {
+    .dashboard-container {
+        flex-direction: column; /* Tabla arriba, imagen abajo */
+    }
+    
+    .vehicle-grid {
+        width: 100%;
+        /* En celular, quizás prefieras 2 columnas en vez de 4 para que quepa todo */
+        grid-template-columns: repeat(2, 1fr); 
+    }
+    
+    .grid-header {
+        font-size: 14px; /* Letra más pequeña */
+    }
+}
+
+/* --- ESTILOS PARA FORMULARIOS INTERNOS (Register/Exit) --- */
+
+.admin-form-container {
+    flex: 2; /* Ocupa el espacio principal */
+    padding-right: 40px;
+}
+
+/* Cada fila del formulario */
+.form-row {
+    display: flex;          /* Pone etiqueta e input lado a lado */
+    align-items: center;    /* Los centra verticalmente */
+    margin-bottom: 20px;    /* Espacio entre filas */
+}
+
+/* La etiqueta (Nombre, Placa...) */
+.form-row label {
+    width: 150px;           /* Ancho fijo para que todo quede alineado */
+    color: #FFDD00;
+    font-size: 16px;
+}
+
+/* El campo de escritura (Input y Select) */
+.form-row input, 
+.form-row select {
+    flex: 1;                /* Ocupa todo el espacio restante a la derecha */
+    background-color: #E0E0E0;
+    border: none;
+    padding: 12px;
+    font-size: 16px;
+    border-radius: 4px;
+    outline: none;
+}
+
+/* Botón de guardar */
+.save-btn {
+    background-color: #FFDD00;
+    border: none;
+    padding: 10px 30px;
+    font-weight: bold;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+/* AJUSTE MÓVIL: En celular, que se pongan uno encima de otro */
+@media (max-width: 768px) {
+    .form-row {
+        flex-direction: column; /* Vertical */
+        align-items: flex-start;
+    }
+    .form-row label {
+        width: 100%;
+        margin-bottom: 5px;
+    }
+    .admin-form-container {
+        padding-right: 0;
+    }
+}
+
+
+
+/* --- ESTILOS ESPECÍFICOS PARA EXIT VEHICLE --- */
+/* Grupo de búsqueda (Input + Botón juntos) */
+.search-group {
+    flex: 1;            /* Ocupa el espacio derecho */
+    display: flex;
+    gap: 40px;          /* Espacio entre el input y la lupa */
+}
+
+
+/* Botón de lupa */
+.search-btn {
+    background-color: #FFDD00;
+    border: none;
+    padding: 0 20px;
+    font-weight: bold;
+    cursor: pointer;
+    border-radius: 4px;
+}
+
+/* Ajuste móvil para la búsqueda */
+@media (max-width: 768px) {
+    .search-group {
+        width: 100%;
+    }
+}
+
+/* imagen de SALIDA */
+.exit-specific img {
+    max-width: 220px;  /* <--- Prueba este valor (más pequeño) */
+}
+
+/* --- ESTILOS ESPECÍFICOS PARA REPORTS --- */
+
+/* El botón de descarga */
+.download-btn {
+    background-color: #FFDD00;
+    color: black;
+    border: none;
+    padding: 10px 30px;
+    font-size: 16px;
+    font-weight: bold; /* Letra gruesa */
+    cursor: pointer;
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    gap: 10px; /* Espacio entre texto e icono */
+}
+
+.back-nav {
+    margin-bottom: 20px;    /* Espacio antes del título */
+    text-align: left;       /* Asegura que esté a la izquierda */
+}
+
+.back-nav a {
+    color: #FFDD00;         /* Amarillo WiseParking */
+    text-decoration: none;  /* Sin subrayado feo */
+    font-size: 16px;
+    font-weight: bold;
+    transition: opacity 0.3s;
+}
+
+.back-nav a:hover {
+    opacity: 0.8;           /* Pequeño efecto al pasar el mouse */
+    text-decoration: underline;
+}
+
+.download-btn:hover {
+    background-color: white; /* Efecto al pasar el mouse */
+}
+
+/* Espaciado extra para el texto de introducción */
+.reports-header {
+    margin-bottom: 40px;
+    padding-top: 20px;   /* <---  El espacio arriba */
+}
+
+/* imagen de REPORTES */
+.reports-specific img {
+    max-width: 250px;  /* <--- Prueba este valor (más grande) */
+}
+

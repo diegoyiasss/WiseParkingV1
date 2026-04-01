@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WISEPARKING</title>
+    <link rel="stylesheet" href="css/estilos.css">
+</head>
+
+<body>
+    
+    <header class="navbar">
+  <div class="logo">
+    <img src="images/logo.png" alt="logo" width="96" height="42">
+  </div>
+
+  <!-- <h1 class="brand">WISEPARKING</h1>  --> 
+
+  <nav class="nav">
+<ul class="menu">
+  <li><a href="index.html">Home</a></li>             
+  <li><a href="index.html#services">Services</a></li> 
+  <li><a href="index.html#contact">Contact us</a></li> 
+  <li><a href="signin.html">Sign in</a></li>
+  <li><a href="register.html">Register</a></li>
+</ul>
+  </nav>
+</header>
+
+<main>
+    <section class="auth-section">
+        
+        <div class="auth-form">
+            <h2>Sign in</h2>
+
+            <form>
+                
+                <label>Username</label>
+                <input type="text" placeholder="user@email.com"> 
+                
+                <label>Password</label>
+                <input type="password" placeholder="********"> 
+
+                <button type="submit">Sign in</button>
+            
+            </form>
+        </div>
+
+        <div class="auth-image">
+             <img src="images/Signin.png" alt="Parking Decor">
+        </div>
+
+    </section>
+
+    <script>
+    const navToggle = document.querySelector(".nav-toggle");
+    const navMenu = document.querySelector(".menu");
+
+    navToggle.addEventListener("click", () => {
+      navMenu.classList.toggle("nav-visible");
+    });
+  </script>
+
+</body>
+</main>

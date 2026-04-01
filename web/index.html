@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WISEPARKING</title>
+    <link rel="stylesheet" href="css/estilos.css">
+</head>
+
+<body>
+    
+    <header class="navbar">
+  <div class="logo">
+    <img src="images/logo.png" alt="logo" width="96" height="42">
+  </div>
+
+<button class="nav-toggle" aria-label="Abrir menú">
+  ☰
+</button>
+
+  <!-- <h1 class="brand">WISEPARKING</h1>  --> 
+
+  <nav class="nav">
+<ul class="menu">
+  <li><a href="#">Home</a></li>
+  <li><a href="#services">Services</a></li>  
+  <li><a href="#contact">Contact us</a></li> 
+  <li><a href="signin.html">Sign in</a></li>
+  <li><a href="register.html">Register</a></li>
+</ul>
+  </nav>
+</header>
+    
+<main>
+  <section class="home">
+    <div class="home-content"> 
+    <h2>Home</h2>
+
+    <p>
+       Streamline parking management with a simple platform that records check-in and check-out times, license plates, and vehicle-based rates, automatically calculating the total to pay.
+    </p>
+
+    <p>
+       The dashboard shows real-time active vehicles, movement history, and quick reports to keep daily operations transparent and under control.
+    </p>
+
+    <ul>
+        <li>Automatic entry and exit logging with precise timestamps.</li>
+        <li>License plate identification and vehicle-type classification.</li>
+        <li>Instant price calculation based on configured rates.</li>
+        <li>Reports for daily tracking and shift closing.</li>
+    </ul>
+
+      <p>Reliability, speed, and control in one place, designed for owners of informal parking lots who need hassle-free management.</p>
+
+    </div>
+
+    <img src="images/home-icono1.png" alt="Iconos de parqueo">
+
+
+</section>
+<section class="Services" id="services">
+  <div class="services-content">
+  <h2>Services</h2>
+  <p>
+    Comprehensive tools to manage the parking lot from any device, with automated processes and clear data for decision-making.
+  </p>
+  <p>
+    Each service is designed to save time, prevent manual errors, and improve the payment experience for owners and drivers.
+  </p>
+  <ul>
+    <li>Access control: record vehicle check-in and check-out times.</li>
+    <li>Rate management: configure by vehicle type and time bands.</li>
+    <li>License plate lookup: quick search and history verification.</li>
+    <li>Charge calculation: automatic total with time and rate breakdown.</li>
+    <li>Reporting and audit: summaries of movements, revenue, and occupancy.</li>
+  </ul>
+
+  <p>Close support and updates tailored to daily parking operations, without complex processes.</p>
+  </div>
+    <img src="images/home-icono2.png" alt="Iconos de parqueo2">
+</section>
+
+<section class="Contact-us" id="contact">
+  <h2>Contact us</h2>
+
+<div class="contact-container">
+    
+  <div class="contact-item">
+    <h3>Call us</h3>
+    <p>+573224121883</p>
+  </div>
+
+  <div class="contact-item whatsapp">
+    <h3>WhatsApp</h3>
+    <p>+573224121883</p>
+  </div>
+
+  <div class="contact-item instagram">
+    <h3>Instagram</h3>
+    <p>@wiseparking</p>
+  </div>
+  
+</div>
+</section>
+
+</main>
+
+<script>
+    const navToggle = document.querySelector(".nav-toggle");
+    const navMenu = document.querySelector(".menu");
+
+    navToggle.addEventListener("click", () => {
+      navMenu.classList.toggle("nav-visible");
+    });
+  </script>
+
+</body>
+</html>
+
+</body>
+</html>
