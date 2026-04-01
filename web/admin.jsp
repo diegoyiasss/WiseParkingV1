@@ -29,7 +29,7 @@
             <div class="admin-links">
                 <a href="register-vehicle.html">Register vehicle</a>
                 <a href="exit-vehicle.html">Exit vehicle</a>
-                <a href="admin.html" class="active-link">Admin vehicles</a> </div>
+                <a href="admin.jsp.html" class="active-link">Admin vehicles</a> </div>
 
             <p class="description">Manage the currently registered vehicles</p>
 
@@ -104,4 +104,50 @@
         });
     </script>
 </body>
+<!-- Importar las clases de Java necesarias en JSP -->
+<%@page import="java.util.List"%>
+<%@page import="com.wiseparking.modelo.RegistroParqueo"%>
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Admin Dashboard</title>
+    <!-- Aquí van tus estilos CSS -->
+</head>
+<body>
+    <h2>Vehículos en el Parqueadero</h2>
+    <table border="1">
+        <tr>
+            <th>ID Registro</th>
+            <th>Placa</th>
+            <th>Hora de Llegada</th>
+        </tr>
+        
+        <% 
+            // ELEMENTOS DE JSP: Recuperar la lista enviada por el Servlet
+            List<RegistroParqueo> vehiculos = (List<RegistroParqueo>) request.getAttribute("listaVehiculos");
+            
+            if (vehiculos != null && !vehiculos.isEmpty()) {
+                // Ciclo para imprimir cada fila de la tabla
+                for (RegistroParqueo v : vehiculos) {
+        %>
+                    <tr>
+                        <td><%= v.getRegistroId() %></td>
+                        <td><%= v.getLicensePlate() %></td>
+                        <td><%= v.getArrivalTime() %></td>
+                    </tr>
+        <% 
+                }
+            } else {
+        %>
+                <tr>
+                    <td colspan="3">No hay vehículos registrados.</td>
+                </tr>
+        <% 
+            }
+        %>
+    </table>
+</body>
+</html>
 </html>

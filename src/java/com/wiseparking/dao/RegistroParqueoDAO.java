@@ -91,4 +91,27 @@ public class RegistroParqueoDAO {
             return false;
         }
     }
+    // Método para LISTAR todos los vehículos activos (Para el método GET y JSP)
+    public java.util.List<RegistroParqueo> listarVehiculosActivos() {
+        java.util.List<RegistroParqueo> lista = new java.util.ArrayList<>();
+        String sql = "SELECT * FROM RegistrosParqueo WHERE ExitTime IS NULL";
+        
+        try (Connection con = ConexionBD.conectar();
+             PreparedStatement ps = con.prepareStatement(sql);
+             java.sql.ResultSet rs = ps.executeQuery()) {
+            
+            while (rs.next()) {
+                RegistroParqueo registro = new RegistroParqueo();
+                registro.setRegistroId(rs.getInt("RegistroID"));
+                registro.setUsuarioId(rs.getInt("UsuarioID"));
+                registro.setTipoVehiculoId(rs.getInt("TipoVehiculoID"));
+                registro.setLicensePlate(rs.getString("LicensePlate"));
+                registro.setArrivalTime(rs.getTimestamp("ArrivalTime"));
+                lista.add(registro);
+            }
+        } catch (SQLException e) {
+            System.out.println("Error al listar vehículos: " + e.getMessage());
+        }
+        return lista;
+    }
 }
